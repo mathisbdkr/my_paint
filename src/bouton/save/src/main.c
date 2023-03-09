@@ -9,10 +9,10 @@
 
 static int close_win(struct save_t *save, sfEvent event)
 {
-    if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue) {
+    if (event.type == sfEvtClosed) {
         sfRenderWindow_close(save->window);
     }
-    if (event.type == sfEvtClosed) {
+    if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue) {
         sfRenderWindow_close(save->window);
     }
 }
