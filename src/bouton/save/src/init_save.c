@@ -1,0 +1,17 @@
+/*
+** EPITECH PROJECT, 2023
+** B-MUL-200-PAR-2-1-mypaint-mathis.brehm
+** File description:
+** init_struct
+*/
+
+#include "../include/my.h"
+
+void init_save(struct save_t *save)
+{
+    sfVideoMode mode = { 700, 600 , 32 };
+    save->window = sfRenderWindow_create(mode, "my paint",
+    sfNone, NULL);
+    dir_sprite(save);
+    file_sprite(save);
+}

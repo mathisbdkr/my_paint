@@ -1,0 +1,3 @@
+./Makefile:41: illegal token in column 10, giving up (hint: fix the file or remove it from the working set)
+./my_paint:1: MAJOR:C-O1
+./src/bouton/save/src/file_management/lst_file.c:49: INFO:C-A3

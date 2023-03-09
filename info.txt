@@ -1,0 +1,7 @@
+int **def_boutton 
+colone 0 x
+colone 1 y
+colone 2 hauteur
+colone 3 longeur
+colone 4 epesseur bordure
+colone 5 est presser?
