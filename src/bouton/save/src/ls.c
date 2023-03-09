@@ -53,6 +53,9 @@ void file_char(struct save_t *save, int res, int nb)
 int ls_vide(struct save_t *save)
 {
     DIR *dir = opendir("./");
+    if (dir == NULL) {
+        return 1;
+    }
     struct dirent *file = readdir(dir);
     int len = 0;
     int res = my_strlen(file->d_name);

@@ -37,7 +37,8 @@ void lst_file(struct save_t *save, sfEvent event)
     int x = 100;
     int n = 0;
     int nb = 0;
-    ls_vide(save);
+    if (ls_vide(save) == 1)
+        return;
     save->tab = my_str_to_word_array(save->file, ' ');
     for (nb = 0; save->tab[nb] != NULL; nb++) {
     }
