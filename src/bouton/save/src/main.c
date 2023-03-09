@@ -46,6 +46,7 @@ void save_menu(void)
     sfSprite_destroy(save->dir_sprite);
     sfSprite_destroy(save->file_sprite);
     free(save->file);
+    free(save->tab);
     sfRenderWindow_destroy(save->window);
     free(save);
 }
