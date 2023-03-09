@@ -9,7 +9,7 @@
 
 void init_save(struct save_t *save)
 {
-    sfVideoMode mode = { 700, 600 , 32 };
+    sfVideoMode mode = { 600, 500 , 32 };
     save->window = sfRenderWindow_create(mode, "save file (tha le flow)",
     sfClose, NULL);
     sfVector2i pos = {50, 50};

@@ -49,7 +49,7 @@ void lst_file(struct save_t *save, sfEvent event)
         n++;
         if (n >= 3) {
             y = 75;
-            x += 150;
+            x += 135;
             n = 0;
         }
     }

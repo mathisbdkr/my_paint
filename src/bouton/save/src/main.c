@@ -43,4 +43,9 @@ void save_menu(void)
     init_save(save);
     sfEvent event;
     loop(save, event);
+    sfSprite_destroy(save->dir_sprite);
+    sfSprite_destroy(save->file_sprite);
+    free(save->file);
+    sfRenderWindow_destroy(save->window);
+    free(save);
 }
