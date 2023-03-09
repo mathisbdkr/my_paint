@@ -23,6 +23,7 @@ void dir_sprite(struct save_t *save);
 void file_sprite(struct save_t *save);
 char *resize_name(char *name);
 void lst_file(struct save_t *save, sfEvent event);
+int rond_button(struct save_t *save, int id, int x, int y);
 
 char *my_strcpy(char* dest, char* src);
 int my_put_nbr(int nb);

@@ -15,6 +15,7 @@ SRC	=	src/*.c	\
 	src/bouton/*.c	\
 	src/bouton/save/src/*.c	\
 	src/bouton/save/src/file_management/*.c	\
+	src/bouton/save/src/bouton/*.c	\
 	src/sprite/*.c	\
 	lib/*.c
 

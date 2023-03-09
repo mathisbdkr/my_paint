@@ -12,7 +12,7 @@
     #include "struct_menu.h"
 
 void button(struct button_s *boutton, sfEvent event, int i);
-void menu_redir(struct button_s *boutton);
-void save_menu(void);
+void menu_redir(struct button_s *boutton, struct paint_t *paint);
+void save_menu(sfImage *image);
 
 #endif /* !PROTO_MENU_H_ */

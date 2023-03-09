@@ -19,6 +19,8 @@ struct save_t {
     sfSprite *dir_sprite;
     sfSprite *file_sprite;
     sfVector2f pos_txt;
+    struct paint_t *paint;
+    int is_save;
 };
 
 #endif /* !STRUCT_H_ */

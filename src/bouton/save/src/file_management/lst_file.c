@@ -34,7 +34,7 @@ static void texte(struct save_t *save, char *name, int y, int x)
 void lst_file(struct save_t *save, sfEvent event)
 {
     int y = 75;
-    int x = 100;
+    int x = 70;
     int n = 0;
     int nb = 0;
     if (ls_vide(save) == 1)

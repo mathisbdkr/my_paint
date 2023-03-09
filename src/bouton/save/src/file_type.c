@@ -20,9 +20,6 @@ char *resize_name(char *name)
 
 int file_type(struct save_t *save, char *name)
 {
-    if (my_strlen(name) -1 == ' ') {
-        //my_putstr(name);
-    }
     struct stat sb;
     stat(name, &sb);
     if (S_ISDIR(sb.st_mode)) {

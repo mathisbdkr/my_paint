@@ -57,7 +57,7 @@ void loop(struct paint_t *paint, struct button_s *boutton, sfEvent event)
             button(boutton, event, i);
         }
         sfRenderWindow_display(paint->window);
-        menu_redir(boutton);
+        menu_redir(boutton, paint);
     }
 }
 
