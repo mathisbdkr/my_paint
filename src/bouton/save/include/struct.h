@@ -23,6 +23,8 @@ struct save_t {
     int is_save;
     char *dir_patch;
     char *enter_path;
+    int ext_select;
+    char *extention;
 };
 
 #endif /* !STRUCT_H_ */

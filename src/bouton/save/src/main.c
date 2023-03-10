@@ -45,7 +45,7 @@ static void loop(struct save_t *save, sfEvent event, sfImage *image)
         if (save->is_save == 1) {
             char *tmp = save->dir_patch;
             tmp = my_strcat(tmp, save->enter_path);
-            tmp = my_strcat(tmp, ".png");
+            tmp = my_strcat(tmp, save->extention);
             fopen(tmp, "w");
             sfImage_saveToFile(image, tmp);
             pass = 1;

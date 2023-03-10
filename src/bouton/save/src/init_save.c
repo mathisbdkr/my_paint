@@ -19,4 +19,6 @@ void init_save(struct save_t *save)
     save->dir_patch = "./";
     save->enter_path = malloc(sizeof(char) * 1000);
     save->enter_path[0] = '\0';
+    save->ext_select = 0;
+    save->extention = ".png";
 }

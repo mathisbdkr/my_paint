@@ -65,6 +65,7 @@ void search_bare(struct save_t *save)
     search_rect(save, 400, 100, sfColor_fromRGB(23,20,47));
     txt(save, save->enter_path);
     txt_save(save, "Save as");
+    ext_file(save);
     int k = 0;
     int len = my_strlen(save->enter_path);
     char *lettre = malloc(sizeof(char) + 2);
