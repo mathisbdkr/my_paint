@@ -36,6 +36,8 @@ static int texte(struct save_t *save, char *name, int y, int x)
     pos.y <= y + 55 && pos.y >= y && sfMouse_isButtonPressed(0) && type == 1) {
         save->dir_patch = my_strcat(save->dir_patch, name);
         save->dir_patch = my_strcat(save->dir_patch, "/");
+        while (sfMouse_isButtonPressed(0)) {
+        }
         return 1;
     }
     y += 35;
