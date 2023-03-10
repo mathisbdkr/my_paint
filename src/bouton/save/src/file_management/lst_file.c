@@ -15,7 +15,11 @@ static void txt(struct save_t *save, char *name, int y, int x)
     sfText_setColor(liste, sfWhite);
     sfText_setFont(liste, font);
     sfText_setScale(liste, get_position(0.5, 0.5));
+    if (name == NULL)
+        return;
     resize_name(name);
+    if (name == NULL)
+        return;
     sfText_setString(liste, name);
     sfRenderWindow_drawText(save->window, liste, NULL);
     sfText_destroy(liste);
