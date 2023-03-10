@@ -52,6 +52,8 @@ void lst_file(struct save_t *save, sfEvent event)
     save->tab = my_str_to_word_array(save->file, ' ');
     for (nb = 0; save->tab[nb] != NULL; nb++) {
     }
+    if (save->tab == NULL)
+        return;
     int back = 0;
     save->tab[nb - 1][my_strlen(save->tab[nb - 1]) - 1] = '\0';
     for (int i = 0, n = 0; save->tab[i] != NULL && back == 0; i++) {

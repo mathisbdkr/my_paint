@@ -9,7 +9,8 @@
 
 char *resize_name(char *name)
 {
-    if (my_strlen(name) >= 6 && my_strlen(name) > 9) {
+    int len = my_strlen(name);
+    if (len >= 6 && len > 9) {
         for (int i = 6; i < 9; i++) {
             name[i] = '.';
         }
