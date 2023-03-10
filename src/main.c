@@ -70,4 +70,10 @@ int main(int argc, char **argv)
     loop(paint, boutton, event);
     fopen("./backup/backup.jpg", "w");
     sfImage_saveToFile(paint->image, "./backup/backup.jpg");
+    sfImage_destroy(paint->image);
+    sfSprite_destroy(paint->eraser);
+    sfSprite_destroy(paint->fleche);
+    sfSprite_destroy(paint->pen);
+    sfRenderWindow_destroy(paint->window);
+    free(paint);
 }

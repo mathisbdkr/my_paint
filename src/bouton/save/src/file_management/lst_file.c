@@ -55,10 +55,11 @@ void lst_file(struct save_t *save, sfEvent event)
     if (save->tab == NULL)
         return;
     int back = 0;
-    for (int i = 0, n = 0; save->tab[i + 1] != NULL &&
-    save->tab[i][0] != '\0' && back == 0; i++) {
+    save->tab[nb - 1][my_strlen(save->tab[nb - 1]) - 1] = '\0';
+    for (int i = 0, n = 0; save->tab[i] != NULL && back == 0; i++) {
         back = texte(save, save->tab[i], y, x);
-        y += 125;n++;
+        y += 125;
+        n++;
         if (n >= 3 && back == 0) {
             y = 75;
             x += 135;
