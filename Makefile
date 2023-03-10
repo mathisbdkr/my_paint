@@ -27,7 +27,7 @@ NAME	=	my_paint
 LIB	=	-lcsfml-system -lcsfml-graphics -lcsfml-audio -lcsfml-window
 
 $(NAME):
-	gcc $(SRC) $(LIB) -lm -o $(NAME)
+	gcc -g $(SRC) $(LIB) -lm -o $(NAME)
 
 all:	$(NAME) clean
 

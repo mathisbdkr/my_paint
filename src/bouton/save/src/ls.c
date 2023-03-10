@@ -49,7 +49,7 @@ void file_char(struct save_t *save, int res, int nb)
         return;
     }
     save->file[0] = '\0';
-    if (file->d_name[0] != '.') {
+    if (file->d_name[0] != '.' && file->d_name[0] != '\0') {
         save->file = my_strcat(save->file, file->d_name);
         save->file = my_strcat(save->file, " ");
     }
