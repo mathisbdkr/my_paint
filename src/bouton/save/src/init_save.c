@@ -16,4 +16,7 @@ void init_save(struct save_t *save)
     sfRenderWindow_setPosition(save->window, pos);
     dir_sprite(save);
     file_sprite(save);
+    save->dir_patch = "./";
+    save->enter_path = malloc(sizeof(char) * 1000);
+    save->enter_path[0] = '\0';
 }

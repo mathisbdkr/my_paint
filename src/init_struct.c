@@ -19,7 +19,7 @@ void position_boutton(struct button_s *boutton)
         boutton->def_button[i][2] = 20;
         boutton->def_button[i][3] = 40;
         boutton->def_button[i][4] = 1;
-        boutton->def_button[i][5] = 1;
+        boutton->def_button[i][5] = 0;
         x += 45;
     }
 }

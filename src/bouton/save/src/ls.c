@@ -38,7 +38,7 @@ int nom_file(struct dirent *file, DIR *dir, struct save_t *save)
 
 void file_char(struct save_t *save, int res, int nb)
 {
-    DIR *dir = opendir("./");
+    DIR *dir = opendir(save->dir_patch);
     if (!dir) {
         return;
     }
@@ -59,7 +59,7 @@ void file_char(struct save_t *save, int res, int nb)
 
 int ls_vide(struct save_t *save)
 {
-    DIR *dir = opendir("./");
+    DIR *dir = opendir(save->dir_patch);
     if (!dir) {
         return 1;
     }

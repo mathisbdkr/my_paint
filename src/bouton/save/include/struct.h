@@ -21,6 +21,8 @@ struct save_t {
     sfVector2f pos_txt;
     struct paint_t *paint;
     int is_save;
+    char *dir_patch;
+    char *enter_path;
 };
 
 #endif /* !STRUCT_H_ */
