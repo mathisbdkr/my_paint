@@ -7,20 +7,26 @@
 
 #include "../include/my.h"
 
-static int close_win(struct save_t *save, sfEvent event)
+static char *save_path(struct save_t *save, sfImage *image)
 {
-    if (event.type == sfEvtClosed) {
-        sfRenderWindow_close(save->window);
+    if (save->is_save == 1 && save->mode != 1) {
+        char *tmp = save->dir_patch;
+        tmp = my_strcat(tmp, save->enter_path);
+        tmp = my_strcat(tmp, save->extention);
+        fopen(tmp, "w");
+        sfImage_saveToFile(image, tmp);
+        return tmp;
     }
-    if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue) {
-        sfRenderWindow_close(save->window);
+    if (save->is_save == 1 && save->mode == 1) {
+        char *tmp = save->dir_patch;
+        tmp = my_strcat(tmp, save->enter_path);
+        if (check_file(save, save->enter_path, tmp) == 0) {
+            return tmp;
+        }
+        save->is_save = 0;
+        save->enter_path[0] = '\0';
     }
-}
-
-static void mouse(struct save_t *save, sfEvent event)
-{
-    sfVector2i pos_mouse = sfMouse_getPositionRenderWindow(save->window);
-    save->pos = sfRenderWindow_mapPixelToCoords(save->window,pos_mouse, NULL);
+    return NULL;
 }
 
 static void loop_pt1(struct save_t *save, sfEvent event, sfImage *image)
@@ -29,38 +35,32 @@ static void loop_pt1(struct save_t *save, sfEvent event, sfImage *image)
     sfRenderWindow_requestFocus(save->window);
     sfRenderWindow_clear(save->window, sfColor_fromRGB(37,31,75));
     sfRenderWindow_pollEvent(save->window, &event);
-    mouse(save, event);
-    close_win(save, event);
+    utils_file_manager(save, event);
     lst_file(save, event);
     rond_button(save, 0, 150, 450);
     rond_button(save, 1, 350, 450);
+    search_bare(save);
 }
 
-static void loop(struct save_t *save, sfEvent event, sfImage *image)
+static char *loop(struct save_t *save, sfEvent event, sfImage *image)
 {
     char *name;
     int pass = 0;
     while (sfRenderWindow_isOpen(save->window) && pass == 0) {
         loop_pt1(save, event, image);
         if (save->is_save == 1) {
-            char *tmp = save->dir_patch;
-            tmp = my_strcat(tmp, save->enter_path);
-            tmp = my_strcat(tmp, save->extention);
-            fopen(tmp, "w");
-            sfImage_saveToFile(image, tmp);
-            pass = 1;
+            return save_path(save, image);
         }
-        search_bare(save);
         sfRenderWindow_display(save->window);
     }
 }
 
-void save_menu(sfImage *image)
+char *save_menu(sfImage *image, int mode, char *path_name)
 {
     struct save_t *save = malloc(sizeof(struct save_t));
-    init_save(save);
+    init_save(save, mode);
     sfEvent event;
-    loop(save, event, image);
+    char *path = loop(save, event, image);
     sfSprite_destroy(save->dir_sprite);
     sfSprite_destroy(save->file_sprite);
     free(save->file);
@@ -70,4 +70,5 @@ void save_menu(sfImage *image)
     free(save);
     while (sfMouse_isButtonPressed(0)) {
     }
+    return path;
 }

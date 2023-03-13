@@ -25,6 +25,8 @@ struct save_t {
     char *enter_path;
     int ext_select;
     char *extention;
+    int mode;
+    char *txt_mode;
 };
 
 #endif /* !STRUCT_H_ */

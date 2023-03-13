@@ -21,5 +21,6 @@ int close_win(struct paint_t *paint, sfEvent event);
 
 sfVector2i vec_u_to_i(float x, float y);
 char *my_strcpy(char* dest, char* src);
+int my_strcmp(const char* s1, const char* s2);
 
 #endif /* !paint_H_ */

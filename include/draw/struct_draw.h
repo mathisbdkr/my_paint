@@ -34,6 +34,7 @@ struct paint_t {
     sfSprite *fleche;
     int tool_bare;
     int tmp;
+    char *path_name;
 };
 
 #endif /* !STRUCT_DRAW_H_ */

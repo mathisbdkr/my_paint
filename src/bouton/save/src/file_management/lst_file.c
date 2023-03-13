@@ -15,15 +15,34 @@ static void txt(struct save_t *save, char *name, int y, int x)
     sfText_setColor(liste, sfWhite);
     sfText_setFont(liste, font);
     sfText_setScale(liste, get_position(0.5, 0.5));
-    if (name == NULL)
-        return;
     resize_name(name);
-    if (name == NULL)
-        return;
     sfText_setString(liste, name);
     sfRenderWindow_drawText(save->window, liste, NULL);
     sfText_destroy(liste);
     sfFont_destroy(font);
+}
+
+static int texte_pt2(struct save_t *save, char *name, int y, int x)
+{
+    sfVector2f pos = save->pos;
+    int type = file_type(save, name);
+    y -= 35;
+    if (pos.x <= x + 47 && pos.x >= x &&
+    pos.y <= y + 55 && pos.y >= y && sfMouse_isButtonPressed(0) && type == 1) {
+        save->dir_patch = my_strcat(save->dir_patch, name);
+        save->dir_patch = my_strcat(save->dir_patch, "/");
+        while (sfMouse_isButtonPressed(0)){
+        }
+        return 1;
+    }
+    if (pos.x <= x + 47 && pos.x >= x &&
+    pos.y <= y + 55 && pos.y >= y && sfMouse_isButtonPressed(0)
+    && type == 0 && save->mode == 1) {
+        save->enter_path = my_strcat(save->enter_path, name);
+        while (sfMouse_isButtonPressed(0)){
+        }
+        return 1;
+    }
 }
 
 static int texte(struct save_t *save, char *name, int y, int x)
@@ -31,16 +50,16 @@ static int texte(struct save_t *save, char *name, int y, int x)
     sfVector2f pos = save->pos;
     save->pos_txt = get_position(x, y - 35);
     int type = file_type(save, name);
-    y -= 35;
-    if (pos.x <= x + 47 && pos.x >= x &&
-    pos.y <= y + 55 && pos.y >= y && sfMouse_isButtonPressed(0) && type == 1) {
-        save->dir_patch = my_strcat(save->dir_patch, name);
-        save->dir_patch = my_strcat(save->dir_patch, "/");
-        while (sfMouse_isButtonPressed(0)) {
-        }
+    int k = 0;
+    while (name[k] != '\0' && name[k] != ' ') {
+        k++;
+    }
+    name[k] = '\0';
+    int i = 0;
+    i = texte_pt2(save, name, y, x);
+    if (i == 1) {
         return 1;
     }
-    y += 35;
     txt(save, name, y, x);
     return 0;
 }
@@ -54,8 +73,6 @@ void lst_file(struct save_t *save, sfEvent event)
     save->tab = my_str_to_word_array(save->file, ' ');
     for (nb = 0; save->tab[nb] != NULL; nb++) {
     }
-    if (save->tab == NULL)
-        return;
     int back = 0;
     save->tab[nb - 1][my_strlen(save->tab[nb - 1]) - 1] = '\0';
     for (int i = 0, n = 0; save->tab[i] != NULL && back == 0; i++) {

@@ -7,12 +7,23 @@
 
 #include "../include/my.h"
 
-void init_save(struct save_t *save)
+static void init_mode(struct save_t *save, int mode)
 {
-    sfVideoMode mode = { 600, 500 , 32 };
-    save->window = sfRenderWindow_create(mode, "save file (tha le flow)",
+    save->mode = mode;
+    if (mode == 1)
+        save->txt_mode = "Open file";
+    if (mode == 2)
+        save->txt_mode = "Save";
+    if (mode == 3)
+        save->txt_mode = "Save as";
+}
+
+void init_save(struct save_t *save, int mode)
+{
+    sfVideoMode vmode = { 600, 500 , 32 };
+    save->window = sfRenderWindow_create(vmode, "save file (tha le flow)",
     sfNone, NULL);
-    sfVector2i pos = {100, 100};
+    sfVector2i pos = {200, 100};
     sfRenderWindow_setPosition(save->window, pos);
     dir_sprite(save);
     file_sprite(save);
@@ -21,4 +32,5 @@ void init_save(struct save_t *save)
     save->enter_path[0] = '\0';
     save->ext_select = 0;
     save->extention = ".png";
+    init_mode(save, mode);
 }

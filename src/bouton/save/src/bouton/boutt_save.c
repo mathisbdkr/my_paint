@@ -9,6 +9,9 @@
 
 static void save_txt(struct save_t *save, int x, int y)
 {
+    char *name = "save";
+    if (save->mode == 1)
+        name = "open";
     sfVector2f pos = save->pos;
     sfText *liste = sfText_create();
     sfFont *font = sfFont_createFromFile("font/calibril.ttf");
@@ -17,7 +20,7 @@ static void save_txt(struct save_t *save, int x, int y)
     sfText_setColor(liste, sfWhite);
     sfText_setFont(liste, font);
     sfText_setScale(liste, get_position(0.6, 0.6));
-    sfText_setString(liste, "Save");
+    sfText_setString(liste, name);
     sfRenderWindow_drawText(save->window, liste, NULL);
 }
 

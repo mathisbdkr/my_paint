@@ -17,6 +17,8 @@
     #include <math.h>
     #include <sys/stat.h>
     #include <time.h>
+    #include "stdbool.h"
+
 int my_putstr(char const *str);
 int my_strlen(char const *str);
 #endif /* !INCLUDE_H_ */

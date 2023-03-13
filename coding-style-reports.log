@@ -1,3 +1,2 @@
-./Makefile:43: illegal token in column 10, giving up (hint: fix the file or remove it from the working set)
+./Makefile:44: illegal token in column 10, giving up (hint: fix the file or remove it from the working set)
 ./my_paint:1: MAJOR:C-O1
-./src/bouton/save/src/file_management/lst_file.c:68: MAJOR:C-F4

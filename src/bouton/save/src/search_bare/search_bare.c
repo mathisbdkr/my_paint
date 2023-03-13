@@ -11,7 +11,7 @@ static void txt_save(struct save_t *save, char *name)
 {
     sfText *liste = sfText_create();
     sfFont *font = sfFont_createFromFile("font/calibril.ttf");
-    sfText_setPosition(liste, get_position(40, 398));
+    sfText_setPosition(liste, get_position(35, 398));
     sfText_setColor(liste, sfWhite);
     sfText_setFont(liste, font);
     sfText_setScale(liste, get_position(0.6, 0.6));
@@ -64,12 +64,12 @@ void search_bare(struct save_t *save)
     search_rect(save, 100, 300, sfColor_fromRGB(28,25,52));
     search_rect(save, 400, 100, sfColor_fromRGB(23,20,47));
     txt(save, save->enter_path);
-    txt_save(save, "Save as");
-    ext_file(save);
-    int k = 0;
+    txt_save(save, save->txt_mode);
+    if (save->mode != 1)
+        ext_file(save);
+    int k = 0;int pass = 0;
     int len = my_strlen(save->enter_path);
     char *lettre = malloc(sizeof(char) + 2);
-    int pass = 0;
     for (k; k <= 26 && len < 34; k++) {
         if (sfKeyboard_isKeyPressed(k)) {
             lettre[0] = k + 97;

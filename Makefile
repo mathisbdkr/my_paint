@@ -14,6 +14,7 @@ SRC	=	src/*.c	\
 	src/dessin/draw/*.c	\
 	src/bouton/*.c	\
 	src/bouton/save/src/*.c	\
+	src/bouton/select_save/*.c	\
 	src/bouton/save/src/file_management/*.c	\
 	src/bouton/save/src/bouton/*.c	\
 	src/bouton/save/src/search_bare/*.c	\
@@ -27,7 +28,7 @@ NAME	=	my_paint
 LIB	=	-lcsfml-system -lcsfml-graphics -lcsfml-audio -lcsfml-window
 
 $(NAME):
-	gcc -g $(SRC) $(LIB) -lm -o $(NAME)
+	gcc $(SRC) $(LIB) -lm -o $(NAME)
 
 all:	$(NAME) clean
 

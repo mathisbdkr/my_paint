@@ -7,18 +7,16 @@
 
 #include "../include/my.h"
 
-
 int force_resize(struct paint_t *paint,  sfVector2u size_win_base)
 {
-    sfVector2u force_size_window = {768, 432};
+    sfVector2u force_size_window = {1300, 800};
     sfVector2i force_pos__window = {300, 100};
-    if (sfRenderWindow_getSize(paint->window).x <= 768.f &&
+    if (sfRenderWindow_getSize(paint->window).x <= 768.f ||
     sfRenderWindow_getSize(paint->window).y <= 432.f) {
-        sfRenderWindow_setSize(paint->window, force_size_window);
-        sfRenderWindow_setPosition(paint->window, force_pos__window);
         my_putstr("\033[34m[System] minimal screen size : 1370x800\033[0m\n");
         my_putstr("\033[33m[System] auto resize on 1370x800\033[0m\n");
         sfRenderWindow_setSize(paint->window, force_size_window);
+        sfRenderWindow_setPosition(paint->window, force_pos__window);
     }
     return 0;
 }
@@ -57,7 +55,10 @@ void loop(struct paint_t *paint, struct button_s *boutton, sfEvent event)
             button(boutton, event, i);
         }
         sfRenderWindow_display(paint->window);
-        menu_redir(boutton, paint);
+        if (boutton->def_button[1][5] == 1) {
+            boutton->def_button[1][5] = 0;
+        }
+        menu_redir(boutton, paint, event);
     }
 }
 
@@ -70,10 +71,4 @@ int main(int argc, char **argv)
     loop(paint, boutton, event);
     fopen("./backup/backup.jpg", "w");
     sfImage_saveToFile(paint->image, "./backup/backup.jpg");
-    sfImage_destroy(paint->image);
-    sfSprite_destroy(paint->eraser);
-    sfSprite_destroy(paint->fleche);
-    sfSprite_destroy(paint->pen);
-    sfRenderWindow_destroy(paint->window);
-    free(paint);
 }
