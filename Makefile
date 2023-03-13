@@ -12,6 +12,7 @@ SRC	=	src/*.c	\
 	src/dessin/pen_selection/pen_size/*.c	\
 	src/dessin/pen_selection/pen_shape/*.c	\
 	src/dessin/draw/*.c	\
+	src/dessin/background_color/*.c	\
 	src/bouton/*.c	\
 	src/bouton/save/src/*.c	\
 	src/bouton/select_save/*.c	\

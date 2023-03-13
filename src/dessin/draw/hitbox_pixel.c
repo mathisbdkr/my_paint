@@ -17,7 +17,7 @@ static void hitbox_square(struct pen_t *pen, struct paint_t *paint, int size)
         get_position(pos.x - 8, pos.y - 39));
     }
     if (pen->gomme == 1) {
-        border = sfWhite;
+        border = pen->border_color;
         size_border = 1;
     }
     sfRectangleShape *pixel = sfRectangleShape_create();
@@ -41,8 +41,8 @@ static void hitbox_cercle(struct paint_t *paint, struct pen_t *pen, int size)
         get_position(pos.x - 8, pos.y - 38));
     }
     if (pen->gomme == 1) {
-        border = sfWhite;
         size_border = 1;
+        border = pen->border_color;
     }
     sfCircleShape *pixel = sfCircleShape_create();
     sfCircleShape_setRadius(pixel, size / 1.5);
@@ -59,8 +59,13 @@ void hitbox_pixel(struct paint_t *paint, struct pen_t *pen, int size)
 {
     sfVector2f pos = paint->pos;
     int cercle = pen->cercle_pen;
-    if (pen->gomme == 1) {
+    if (pen->gomme == 1 && pen->back_color == 0) {
         cercle = pen->cercle_eraser;
+        pen->border_color = sfWhite;
+    }
+    if (pen->gomme == 1 && pen->back_color == 1) {
+        cercle = pen->cercle_eraser;
+        pen->border_color = sfBlack;
     }
     if (cercle == 1)
         hitbox_cercle(paint, pen, size);

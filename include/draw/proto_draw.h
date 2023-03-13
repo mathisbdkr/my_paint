@@ -30,5 +30,8 @@ void pixel(struct paint_t *paint, struct pen_t *pen, float size);
 void select_type(struct paint_t *paint, struct pen_t *pen, sfEvent event);
 void pen_shape(struct paint_t *paint, struct pen_t *pen, sfEvent event);
 void set_fleche(struct paint_t *paint);
+void back_color(struct paint_t *paint, struct pen_t *pen);
+void jour_nuit(struct paint_t *paint);
+void back_change(struct paint_t *paint, struct pen_t *pen);
 
 #endif /* !PROTO_DRAW_H_ */

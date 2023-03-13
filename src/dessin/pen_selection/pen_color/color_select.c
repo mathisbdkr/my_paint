@@ -53,6 +53,7 @@ void color_select(struct paint_t *paint, struct pen_t *pen, sfEvent event)
     sfVector2f pos = paint->pos;
     create_back(paint,100, sfColor_fromRGBA(37,31,75,255));
     create_back(paint,25, sfColor_fromRGBA(23,20,47,255));
+    back_change(paint, pen);
     select_type(paint, pen, event);
     pen_shape(paint, pen, event);
     for (int i = 1; i < 8; i++) {

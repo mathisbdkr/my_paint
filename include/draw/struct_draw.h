@@ -18,6 +18,8 @@ struct pen_t {
     int cercle_pen;
     int cercle_eraser;
     int id_color;
+    int back_color;
+    sfColor border_color;
 };
 
 struct paint_t {
@@ -35,6 +37,8 @@ struct paint_t {
     int tool_bare;
     int tmp;
     char *path_name;
+    int back_color;
+    sfSprite *jour_nuit;
 };
 
 #endif /* !STRUCT_DRAW_H_ */

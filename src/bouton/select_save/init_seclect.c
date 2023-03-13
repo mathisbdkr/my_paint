@@ -34,8 +34,8 @@ void destroy_menu(MenuSaveWindow *menu_save_window,
 void init_window(MenuSaveWindow *menu_save_window, struct paint_t *paint)
 {
     menu_save_window->WindowMode.bitsPerPixel = 32;
-    menu_save_window->WindowMode.height = 200;
-    menu_save_window->WindowMode.width = 200;
+    menu_save_window->WindowMode.height = 135;
+    menu_save_window->WindowMode.width = 100;
     menu_save_window->Window = sfRenderWindow_create(
     menu_save_window->WindowMode, "Fenêtre parent", sfNone, NULL);
 

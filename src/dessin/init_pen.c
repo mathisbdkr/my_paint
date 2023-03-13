@@ -16,4 +16,5 @@ void init_pen(struct paint_t *paint, struct pen_t *pen)
     pen->size_eraser = 100;
     pen->cercle_eraser = 1;
     pen->cercle_pen = 0;
+    pen->border_color = sfWhite;
 }

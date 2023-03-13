@@ -36,6 +36,8 @@ static void init_paint(struct paint_t *paint)
     set_eraser(paint);
     set_fleche(paint);
     paint->path_name = NULL;
+    paint->back_color = 0;
+    jour_nuit(paint);
 }
 
 void init_struct(struct paint_t *paint, struct button_s *boutton)
