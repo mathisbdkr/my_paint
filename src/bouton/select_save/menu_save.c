@@ -7,6 +7,20 @@
 
 #include "../../../include/my.h"
 
+static void set_txt_save(MenuSaveWindow *menu_save_window)
+{
+    sfColor txt_color = sfWhite;
+    if (menu_save_window->path == NULL) {
+        txt_color = sfColor_fromRGB(20,20,20);
+    }
+    menu_save_window->saveText = sfText_create();
+    sfText_setString(menu_save_window->saveText, "Save");
+    sfText_setFont(menu_save_window->saveText, menu_save_window->font);
+    sfText_setCharacterSize(menu_save_window->saveText, 16);
+    sfText_setColor(menu_save_window->saveText, txt_color);
+    sfText_setPosition(menu_save_window->saveText, (sfVector2f){15, 55});
+}
+
 void set_text(MenuSaveWindow *menu_save_window)
 {
     menu_save_window->font = sfFont_createFromFile("font/army.ttf");
@@ -17,11 +31,7 @@ void set_text(MenuSaveWindow *menu_save_window)
     sfText_setCharacterSize(menu_save_window->openFileText, 16);
     sfText_setPosition(menu_save_window->openFileText, (sfVector2f){15, 15});
 
-    menu_save_window->saveText = sfText_create();
-    sfText_setString(menu_save_window->saveText, "Save");
-    sfText_setFont(menu_save_window->saveText, menu_save_window->font);
-    sfText_setCharacterSize(menu_save_window->saveText, 16);
-    sfText_setPosition(menu_save_window->saveText, (sfVector2f){15, 55});
+    set_txt_save(menu_save_window);
 
     menu_save_window->saveAsText = sfText_create();
     sfText_setString(menu_save_window->saveAsText, "Save as");
@@ -70,22 +80,6 @@ void is_clicked(MenuSaveWindow *menu_save_window, sfEvent event)
     }
 }
 
-static void set_color_hovered_pt2(MenuSaveWindow *menu_save_window)
-{
-    sfColor color = sfColor_fromRGB(46, 42, 85);
-    if (menu_save_window->is_save_hovered) {
-        sfRectangleShape_setFillColor(menu_save_window->saveButton, color);
-        return;
-    }
-    if (menu_save_window->path != NULL){
-        sfRectangleShape_setFillColor(menu_save_window->saveButton,
-        sfColor_fromRGB(36, 32, 75));
-    } else {
-        sfRectangleShape_setFillColor(menu_save_window->saveButton,
-        sfColor_fromRGB(56, 56, 56));
-    }
-}
-
 void set_color_hovered(MenuSaveWindow *menu_save_window)
 {
     sfColor color = sfColor_fromRGB(46, 42, 85);
@@ -95,7 +89,12 @@ void set_color_hovered(MenuSaveWindow *menu_save_window)
         sfRectangleShape_setFillColor(menu_save_window->openFileButton,
         sfColor_fromRGB(36, 32, 75));
     }
-    set_color_hovered_pt2(menu_save_window);
+    if (menu_save_window->is_save_hovered) {
+        sfRectangleShape_setFillColor(menu_save_window->saveButton, color);
+    } else {
+        sfRectangleShape_setFillColor(menu_save_window->saveButton,
+        sfColor_fromRGB(36, 32, 75));
+    } 
     if (menu_save_window->is_save_as_hovered) {
         sfRectangleShape_setFillColor(menu_save_window->saveAsButton, color);
     } else {

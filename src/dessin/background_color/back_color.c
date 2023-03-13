@@ -52,6 +52,11 @@ void back_color(struct paint_t *paint, struct pen_t *pen)
         pen->back_color = 0;
         paint->back_color = 0;
     }
+    if (color_cmp(pen->color_pick, sfWhite)) {
+        pen->color_pick = sfBlack;
+    } else if (color_cmp(pen->color_pick, sfBlack)) {
+        pen->color_pick = sfWhite;
+    }
     while (sfMouse_isButtonPressed(0)) {
     }
 }

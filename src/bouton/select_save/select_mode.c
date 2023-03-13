@@ -55,6 +55,7 @@ static void loop_menu(MenuSaveWindow *menu_save_window, sfEvent event)
 {
     while (sfRenderWindow_isOpen(menu_save_window->Window) &&
     menu_save_window->mode == 0) {
+        sfRenderWindow_requestFocus(menu_save_window->Window);
         loop_menu_pt2(menu_save_window, event);
         set_color_hovered(menu_save_window);
         draw_save_menu(menu_save_window);

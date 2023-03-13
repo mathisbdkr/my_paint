@@ -70,5 +70,7 @@ char *save_menu(sfImage *image, int mode, char *path_name)
     free(save);
     while (sfMouse_isButtonPressed(0)) {
     }
+    if (path == NULL)
+        return path_name;
     return path;
 }

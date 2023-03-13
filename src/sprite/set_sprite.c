@@ -44,5 +44,6 @@ void jour_nuit(struct paint_t *paint)
     sfSprite_setTexture(fleche,
     sfTexture_createFromFile("img/jour_nuit.png", NULL), 0);
     sfSprite_setScale(fleche, get_position(0.1, 0.1));
+    sfSprite_setPosition(fleche, get_position(540,35));
     paint->jour_nuit = fleche;
 }

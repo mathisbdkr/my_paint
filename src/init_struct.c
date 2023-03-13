@@ -29,14 +29,14 @@ static void init_paint(struct paint_t *paint)
     paint->win_size = sfRenderWindow_getSize(paint->window);
     paint->back = sfRectangleShape_create();
     paint->color_block = sfRectangleShape_create();
-    paint->image = sfImage_createFromColor(1367, 718, sfBlack);
+    paint->image = sfImage_createFromColor(1367, 718, sfWhite);
     paint->tool_bare = 100;
     paint->tmp = 0;
     set_pen(paint);
     set_eraser(paint);
     set_fleche(paint);
     paint->path_name = NULL;
-    paint->back_color = 0;
+    paint->back_color = 1;
     jour_nuit(paint);
 }
 
