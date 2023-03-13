@@ -9,9 +9,10 @@
 
 int check_pixel(float y,float x, float size, struct paint_t *paint)
 {
-    if (y - size <= 0 || y + size >= paint->size_win.y)
+    sfVector2u size_img = sfImage_getSize(paint->image);
+    if (y - size <= 0 || y + size >= size_img.y)
         return 0;
-    if (x - size <= 0 || x + size >= paint->size_win.x)
+    if (x - size <= 0 || x + size >= size_img.x)
         return 0;
     return 1;
 }

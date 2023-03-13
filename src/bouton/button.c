@@ -75,4 +75,5 @@ void button(struct button_s *boutton, sfEvent event, int i)
         boutton->color = sfColor_fromRGBA(0, 255, 50, 255);
     }
     rect_boutton(boutton, i);
+    txt_button_save(boutton);
 }
