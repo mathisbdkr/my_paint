@@ -33,7 +33,11 @@ static void loop_pt1(struct save_t *save, sfEvent event, sfImage *image)
 {
     save->is_save = 0;
     sfRenderWindow_requestFocus(save->window);
-    sfRenderWindow_clear(save->window, sfColor_fromRGB(37,31,75));
+    sfColor back = sfColor_fromRGB(37,31,75);
+    if (save->back_color == 0) {
+        back = sfColor_fromRGB(100,100,100);
+    }
+    sfRenderWindow_clear(save->window, back);
     sfRenderWindow_pollEvent(save->window, &event);
     utils_file_manager(save, event);
     lst_file(save, event);
@@ -55,11 +59,13 @@ static char *loop(struct save_t *save, sfEvent event, sfImage *image)
     }
 }
 
-char *save_menu(sfImage *image, int mode, char *path_name)
+char *save_menu(sfImage *image, int mode, char *path_name, int back_color)
 {
     struct save_t *save = malloc(sizeof(struct save_t));
-    init_save(save, mode);
+    init_save(save, mode, back_color);
     sfEvent event;
+    while (sfMouse_isButtonPressed(0)) {
+    }
     char *path = loop(save, event, image);
     sfSprite_destroy(save->dir_sprite);
     sfSprite_destroy(save->file_sprite);

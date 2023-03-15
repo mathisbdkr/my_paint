@@ -94,7 +94,7 @@ void set_color_hovered(MenuSaveWindow *menu_save_window)
     } else {
         sfRectangleShape_setFillColor(menu_save_window->saveButton,
         sfColor_fromRGB(36, 32, 75));
-    } 
+    }
     if (menu_save_window->is_save_as_hovered) {
         sfRectangleShape_setFillColor(menu_save_window->saveAsButton, color);
     } else {

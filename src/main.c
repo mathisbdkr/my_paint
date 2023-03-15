@@ -46,7 +46,7 @@ void loop(struct paint_t *paint, struct button_s *boutton, sfEvent event)
     struct pen_t *pen = malloc(sizeof(struct pen_t));
     init_pen(paint, pen);
     while (sfRenderWindow_isOpen(paint->window)) {
-        sfRenderWindow_clear(paint->window, sfWhite);
+        sfRenderWindow_clear(paint->window, sfColor_fromRGB(100,100,100));
         sfRenderWindow_pollEvent(paint->window, &event);
         mouse(paint, boutton, event);
         close_win(paint, event);

@@ -12,6 +12,13 @@ static int close_win(struct save_t *save, sfEvent event)
     if (sfKeyboard_isKeyPressed(sfKeyEscape) == sfTrue) {
         sfRenderWindow_close(save->window);
     }
+    sfVector2f pos = save->pos;
+    sfVector2u size_win = sfRenderWindow_getSize(save->window);
+    if (pos.x <= size_win.x && pos.x >= 0 &&
+    pos.y <= size_win.y && pos.y >= 0) {
+    } else if (sfMouse_isButtonPressed(0)) {
+        sfRenderWindow_close(save->window);
+    }
 }
 
 static void mouse(struct save_t *save, sfEvent event)

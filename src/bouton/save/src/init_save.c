@@ -18,7 +18,7 @@ static void init_mode(struct save_t *save, int mode)
         save->txt_mode = "Save as";
 }
 
-void init_save(struct save_t *save, int mode)
+void init_save(struct save_t *save, int mode, int back_color)
 {
     sfVideoMode vmode = { 600, 500 , 32 };
     save->window = sfRenderWindow_create(vmode, "save file (tha le flow)",
@@ -32,5 +32,7 @@ void init_save(struct save_t *save, int mode)
     save->enter_path[0] = '\0';
     save->ext_select = 0;
     save->extention = ".png";
+    save->back_color = back_color;
+    back_sprite(save);
     init_mode(save, mode);
 }

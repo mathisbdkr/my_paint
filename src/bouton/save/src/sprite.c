@@ -26,3 +26,13 @@ void file_sprite(struct save_t *save)
     sfSprite_setPosition(file, get_position(5, 5));
     save->file_sprite = file;
 }
+
+void back_sprite(struct save_t *save)
+{
+    sfSprite *file = sfSprite_create();
+    sfSprite_setTexture(file,
+    sfTexture_createFromFile("img/back.png", NULL), 0);
+    sfSprite_setScale(file, get_position(0.06,0.06));
+    sfSprite_setPosition(file, get_position(5, 5));
+    save->retoure = file;
+}

@@ -27,6 +27,8 @@ struct save_t {
     char *extention;
     int mode;
     char *txt_mode;
+    int back_color;
+    sfSprite *retoure;
 };
 
 #endif /* !STRUCT_H_ */

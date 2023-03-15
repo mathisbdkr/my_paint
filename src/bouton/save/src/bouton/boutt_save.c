@@ -59,6 +59,7 @@ static void bas_rect(struct save_t *save, int x, int y)
 int rond_button(struct save_t *save, int id, int x, int y)
 {
     sfVector2f pos = save->pos;
+    back_button(save);
     bas_rect(save, x, y);
     rond(save, 12.5, x - 12.5, y);
     rond(save, 12.5, (x + 100) - 12.5, y);

@@ -38,7 +38,7 @@ static int texte_pt2(struct save_t *save, char *name, int y, int x)
     if (pos.x <= x + 47 && pos.x >= x &&
     pos.y <= y + 55 && pos.y >= y && sfMouse_isButtonPressed(0)
     && type == 0 && save->mode == 1) {
-        save->enter_path = my_strcat(save->enter_path, name);
+        save->enter_path = name;
         while (sfMouse_isButtonPressed(0)){
         }
         return 1;

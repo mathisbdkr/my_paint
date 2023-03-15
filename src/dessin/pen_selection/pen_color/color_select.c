@@ -46,13 +46,23 @@ static void selected_color(struct paint_t *paint, struct pen_t *pen)
     sfRenderWindow_drawRectangleShape(paint->window, paint->color_block, 0);
 }
 
+static void toolbare_back(struct paint_t *paint, struct pen_t *pen)
+{
+    if (pen->back_color == 1) {
+        create_back(paint,100, sfColor_fromRGBA(200,200,200,255));
+        create_back(paint,25, sfColor_fromRGBA(150,150,150,255));
+    } else {
+        create_back(paint,100, sfColor_fromRGBA(37,31,75,255));
+        create_back(paint,25, sfColor_fromRGBA(23,20,47,255));
+    }
+}
+
 void color_select(struct paint_t *paint, struct pen_t *pen, sfEvent event)
 {
     int x = 1130;
     int y = 30;
     sfVector2f pos = paint->pos;
-    create_back(paint,100, sfColor_fromRGBA(37,31,75,255));
-    create_back(paint,25, sfColor_fromRGBA(23,20,47,255));
+    toolbare_back(paint, pen);
     back_change(paint, pen);
     select_type(paint, pen, event);
     pen_shape(paint, pen, event);
@@ -60,7 +70,7 @@ void color_select(struct paint_t *paint, struct pen_t *pen, sfEvent event)
         color_rect(paint,x, i, pen);
         if (pos.x <= x + 20 && pos.x >= x &&
         pos.y <= y + 20 && pos.y >= y &&
-        event.type == sfEvtMouseButtonPressed) {
+        sfMouse_isButtonPressed(0)) {
             pen->color_pick = color_pallet(i, pen, 0);
             pen->id_color = i;
         }

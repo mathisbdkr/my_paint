@@ -14,7 +14,8 @@ void destroy_menu(MenuSaveWindow *menu_save_window,
         fopen(paint->path_name, "w");
         sfImage_saveToFile(paint->image, paint->path_name);
     } else {
-        char *path = save_menu(image, menu_save_window->mode, paint->path_name);
+        char *path = save_menu(image, menu_save_window->mode,
+        paint->path_name, paint->back_color);
         paint->path_name = path;
     }
     if (paint->path_name != NULL) {

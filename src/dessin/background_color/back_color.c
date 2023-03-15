@@ -20,15 +20,18 @@ static int color_cmp(sfColor color_one, sfColor color_two)
 
 static void color_change(int i, int j, struct paint_t *paint)
 {
-    if (color_cmp(sfImage_getPixel(paint->image, j, i), sfBlack) == 1) {
+    if (color_cmp(sfImage_getPixel(paint->image, j, i),
+    sfBlack) == 1) {
         sfImage_setPixel(paint->image, j, i, sfColor_fromRGBA(0,0,0, 10));
     }
-    if (color_cmp(sfImage_getPixel(paint->image, j, i), sfWhite) == 1) {
+    if (color_cmp(sfImage_getPixel(paint->image, j, i),
+    sfWhite) == 1) {
         sfImage_setPixel(paint->image, j, i, sfBlack);
     }
     if (color_cmp(sfImage_getPixel(paint->image, j, i),
     sfColor_fromRGBA(0,0,0, 10)) == 1) {
-        sfImage_setPixel(paint->image, j, i, sfWhite);
+        sfImage_setPixel(paint->image, j, i,
+        sfWhite);
     }
 }
 
@@ -56,7 +59,5 @@ void back_color(struct paint_t *paint, struct pen_t *pen)
         pen->color_pick = sfBlack;
     } else if (color_cmp(pen->color_pick, sfBlack)) {
         pen->color_pick = sfWhite;
-    }
-    while (sfMouse_isButtonPressed(0)) {
     }
 }
