@@ -42,6 +42,7 @@ static void draw_save_menu(MenuSaveWindow *menu_save_window)
 static void loop_menu_pt2(MenuSaveWindow *menu_save_window, sfEvent event)
 {
     while (sfRenderWindow_pollEvent(menu_save_window->Window, &event)) {
+        exit_event(menu_save_window);
         if (event.type == sfEvtMouseMoved) {
             is_hover(menu_save_window, event);
         }

@@ -23,5 +23,6 @@ void destroy_menu(MenuSaveWindow *menu_save_window,
     sfImage *image, struct paint_t *paint);
 char *save_menu(sfImage *image, int mode, char *path, int back_color);
 void txt_button_save(struct button_s *boutton);
+void exit_event(MenuSaveWindow *menu_save_window);
 
 #endif /* !PROTO_MENU_H_ */

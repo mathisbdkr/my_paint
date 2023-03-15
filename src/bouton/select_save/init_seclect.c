@@ -13,12 +13,12 @@ void destroy_menu(MenuSaveWindow *menu_save_window,
     if (menu_save_window->mode == 2) {
         fopen(paint->path_name, "w");
         sfImage_saveToFile(paint->image, paint->path_name);
-    } else {
+    } else if (menu_save_window->mode != 0) {
         char *path = save_menu(image, menu_save_window->mode,
         paint->path_name, paint->back_color);
         paint->path_name = path;
     }
-    if (paint->path_name != NULL) {
+    if (paint->path_name != NULL && menu_save_window->mode != 0) {
         paint->image = sfImage_createFromFile(paint->path_name);
     }
     sfRenderWindow_close(menu_save_window->Window);
