@@ -1,2 +1,4 @@
 ./Makefile:45: illegal token in column 10, giving up (hint: fix the file or remove it from the working set)
 ./my_paint:1: MAJOR:C-O1
+./src/dessin/draw/print_pixel.c:28: MINOR:C-G7
+./src/dessin/draw/print_pixel.c:32: MAJOR:C-F4

@@ -19,7 +19,7 @@ void position_boutton(struct button_s *boutton)
         boutton->def_button[i][2] = 20;
         boutton->def_button[i][3] = 40;
         boutton->def_button[i][4] = 1;
-        boutton->def_button[i][5] = 1;
+        boutton->def_button[i][5] = 0;
         x += 45;
     }
 }
@@ -38,6 +38,8 @@ static void init_paint(struct paint_t *paint)
     paint->path_name = NULL;
     paint->back_color = 1;
     jour_nuit(paint);
+    zoom_sprite(paint);
+    paint->zoom = 1;
 }
 
 void init_struct(struct paint_t *paint, struct button_s *boutton)

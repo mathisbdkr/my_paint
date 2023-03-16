@@ -77,4 +77,5 @@ void color_select(struct paint_t *paint, struct pen_t *pen, sfEvent event)
         selected_color(paint, pen);
         x += 30;
     }
+    zoom_button(paint);
 }

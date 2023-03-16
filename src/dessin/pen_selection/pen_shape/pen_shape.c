@@ -36,7 +36,7 @@ int square_pen(struct paint_t *paint, int y, sfEvent event, struct pen_t *pen)
     sfRectangleShape *box = sfRectangleShape_create();
     sfRectangleShape_setSize(box,get_position(20, 20));
     sfRectangleShape_setPosition(box, get_position(x, y));
-    sfRectangleShape_setFillColor(box, sfRed);
+    sfRectangleShape_setFillColor(box, pen->color_pick);
     sfRectangleShape_setOutlineThickness(box, 2);
     sfRectangleShape_setOutlineColor(box, sfBlack);
     sfRenderWindow_drawRectangleShape(paint->window, box, 0);
@@ -59,7 +59,7 @@ int cercle_pen(struct paint_t *paint, int y, sfEvent event, struct pen_t *pen)
     sfCircleShape *box = sfCircleShape_create();
     sfCircleShape_setRadius(box, 10);
     sfCircleShape_setPosition(box, get_position(x, y));
-    sfCircleShape_setFillColor(box, sfRed);
+    sfCircleShape_setFillColor(box, pen->color_pick);
     sfCircleShape_setOutlineThickness(box, 2);
     sfCircleShape_setOutlineColor(box, sfBlack);
     sfRenderWindow_drawCircleShape(paint->window, box, 0);

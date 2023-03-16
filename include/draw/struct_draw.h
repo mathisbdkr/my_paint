@@ -39,6 +39,8 @@ struct paint_t {
     char *path_name;
     int back_color;
     sfSprite *jour_nuit;
+    float zoom;
+    sfSprite *zoom_sprite;
 };
 
 #endif /* !STRUCT_DRAW_H_ */

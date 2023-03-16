@@ -25,10 +25,10 @@ static sfColor color_pallet_pt2(int nb, struct pen_t *pen, int n)
 
 sfColor color_pallet(int nb, struct pen_t *pen, int n)
 {
-    sfColor gomme = sfColor_fromRGBA(0,0,0,254);
+    sfColor gomme = sfBlack;
     sfColor color_one = sfWhite;
     if (pen->back_color == 1) {
-        gomme = sfColor_fromRGBA(255,255,255, 254);
+        gomme = sfWhite;
         color_one = sfBlack;
     }
     if (nb == 0) {

@@ -7,14 +7,14 @@
 
 #include "../include/my.h"
 
-static int open_file(char const *filepath)
+static int open_file(char *filepath)
 {
-    int fd = open(filepath, O_RDONLY);
-    close(fd);
-    if (fd == 3) {
-        return 1;
+    FILE* file = fopen(filepath, "r");
+    if (file != NULL) {
+        fclose(file);
+        return 0;
     }
-    return 0;
+    return 1;
 }
 
 static int check_ext(char **tab)
@@ -51,5 +51,8 @@ int check_file(struct save_t *save, char *path, char *path_file)
     char **tab = my_str_to_word_array(path, '.');
     if (check_ext(tab) == 1)
         return 1;
+    if (open_file(path_file) == 1) {
+        return 1;
+    }
     return 0;
 }
