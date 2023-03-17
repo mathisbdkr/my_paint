@@ -12,6 +12,8 @@ void position_boutton(struct button_s *boutton)
     boutton->rect = sfRectangleShape_create();
     boutton->def_button = malloc(sizeof(int *) * 4);
     int x = 30;
+    boutton->font = sfFont_createFromFile("font/calibril.ttf");
+    boutton->txt = sfText_create();
     for (int i = 0; i < 4; i++) {
         boutton->def_button[i] = malloc(sizeof(int) * 6);
         boutton->def_button[i][0] = x;

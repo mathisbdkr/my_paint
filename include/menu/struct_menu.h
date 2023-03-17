@@ -19,6 +19,8 @@ struct button_s {
     sfColor color;
     sfVector2f dimention;
     sfVector2f posi;
+    sfFont *font;
+    sfText *txt;
 };
 
 typedef struct {
