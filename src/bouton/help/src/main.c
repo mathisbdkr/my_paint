@@ -54,4 +54,10 @@ void help_menu(void)
         next_button(help);
         sfRenderWindow_display(help->window);
     }
+    sfSprite_destroy(help->help_one);
+    sfSprite_destroy(help->help_two);
+    sfSprite_destroy(help->help_three);
+    sfSprite_destroy(help->help_four);
+    sfRenderWindow_destroy(help->window);
+    free(help);
 }
