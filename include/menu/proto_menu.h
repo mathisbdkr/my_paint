@@ -24,5 +24,6 @@ void destroy_menu(MenuSaveWindow *menu_save_window,
 char *save_menu(sfImage *image, int mode, char *path, int back_color);
 void txt_button_save(struct button_s *boutton);
 void exit_event(MenuSaveWindow *menu_save_window);
+void help_menu(void);
 
 #endif /* !PROTO_MENU_H_ */

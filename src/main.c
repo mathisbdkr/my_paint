@@ -9,7 +9,7 @@
 
 int force_resize(struct paint_t *paint,  sfVector2u size_win_base)
 {
-    sfVector2u force_size_window = {1300, 800};
+    sfVector2u force_size_window = {800, 600};
     sfVector2i force_pos__window = {300, 100};
     if (sfRenderWindow_getSize(paint->window).x <= 768.f ||
     sfRenderWindow_getSize(paint->window).y <= 432.f) {
@@ -32,7 +32,8 @@ void mouse(struct paint_t *paint, struct button_s *boutton, sfEvent event)
     force_resize(paint, size_win_base);
     if (paint->pos.x < paint->size_win.x
     && paint->pos.y < paint->size_win.y &&
-    paint->pos.x > 0 && paint->pos.y > paint->tool_bare) {
+    paint->pos.x > 0 && paint->pos.y > paint->tool_bare
+    && paint->wheel_active == 0) {
         sfRenderWindow_setMouseCursorVisible(paint->window, sfFalse);
         paint->display_pixel == 0;
     } else {
@@ -55,9 +56,6 @@ void loop(struct paint_t *paint, struct button_s *boutton, sfEvent event)
             button(boutton, event, i);
         }
         sfRenderWindow_display(paint->window);
-        if (boutton->def_button[1][5] == 1) {
-            boutton->def_button[1][5] = 0;
-        }
         menu_redir(boutton, paint, event);
     }
 }

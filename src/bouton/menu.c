@@ -16,4 +16,10 @@ void menu_redir(struct button_s *boutton, struct paint_t *paint, sfEvent event)
         boutton->def_button[0][5] = 0;
         sfRenderWindow_setMouseCursorVisible(paint->window, sfFalse);
     }
+    if (boutton->def_button[1][5] == 1) {
+        sfRenderWindow_setMouseCursorVisible(paint->window, sfTrue);
+        help_menu();
+        boutton->def_button[1][5] = 0;
+        sfRenderWindow_setMouseCursorVisible(paint->window, sfFalse);
+    }
 }

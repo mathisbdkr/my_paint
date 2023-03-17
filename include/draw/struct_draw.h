@@ -41,6 +41,7 @@ struct paint_t {
     sfSprite *jour_nuit;
     float zoom;
     sfSprite *zoom_sprite;
+    int wheel_active;
 };
 
 #endif /* !STRUCT_DRAW_H_ */

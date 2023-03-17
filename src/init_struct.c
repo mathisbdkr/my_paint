@@ -40,6 +40,7 @@ static void init_paint(struct paint_t *paint)
     jour_nuit(paint);
     zoom_sprite(paint);
     paint->zoom = 1;
+    paint->wheel_active = 0;
 }
 
 void init_struct(struct paint_t *paint, struct button_s *boutton)
